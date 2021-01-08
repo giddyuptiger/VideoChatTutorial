@@ -11,8 +11,14 @@ navigator.mediaDevices.getUserMedia({
     video:true,
     audio: true
 }).then(stream => {
+    if(myVideo) {
     addVideoStream(myVideo, stream)
+    }
 })
+
+// socket.on('user-connected', userId => {
+//     connectToNewUsed(userId)
+// })
 
 myPeer.on('open', id => {
 socket.emit('join-room', ROOM_ID, id)
@@ -27,5 +33,5 @@ function addVideoStream(video, stream) {
     video.addEventListener('loadedmeatdata', () => {
         video.play()
     })
-    videoGridappend(video)
+    videoGrid.append(video)
 }
