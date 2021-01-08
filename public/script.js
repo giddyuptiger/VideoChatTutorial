@@ -11,9 +11,7 @@ navigator.mediaDevices.getUserMedia({
     video:true,
     audio: true
 }).then(stream => {
-    if(myVideo) {
     addVideoStream(myVideo, stream)
-    }
 })
 
 // socket.on('user-connected', userId => {
